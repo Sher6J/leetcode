@@ -104,18 +104,34 @@
       <workItem from="1589102873664" duration="412000" />
       <workItem from="1589103298871" duration="171000" />
       <workItem from="1589103483396" duration="5890000" />
-      <workItem from="1589157343954" duration="4721000" />
+      <workItem from="1589157343954" duration="7266000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1589162770679</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589162770679</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="0" key="#Notifications" timestamp="1589103401499">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1589103401499" />
+    <state x="250" y="0" key="CommitChangelistDialog2" timestamp="1589162769826">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="250" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1589162769826" />
     <state width="1237" height="155" key="GridCell.Tab.0.bottom" timestamp="1589112806155">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -136,13 +152,17 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="135" y="0" width="1145" height="680" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1589108386039" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1589162775330">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1589162775330" />
     <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1589157350856">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1589157350856" />
-    <state x="359" y="132" key="git4idea.merge.GitPullDialog" timestamp="1589162738035">
+    <state x="359" y="132" key="git4idea.merge.GitPullDialog" timestamp="1589169723681">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="359" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1589162738035" />
+    <state x="359" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1589169723681" />
   </component>
 </project>
