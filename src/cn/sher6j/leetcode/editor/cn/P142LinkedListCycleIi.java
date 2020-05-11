@@ -105,6 +105,9 @@ public class Solution {
 //        }
 //        return null;
 
+        /**
+         * 快慢指针法
+         */
         ListNode fast = head, slow = head; //起始快慢指针均指向头结点
         while (true) {
             if (fast == null || fast.next == null) return null;
