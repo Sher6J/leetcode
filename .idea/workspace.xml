@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d960f2b8-bb70-4d28-9d02-971eaf2ee73f" name="Default Changelist" comment="" />
+    <list default="true" id="d960f2b8-bb70-4d28-9d02-971eaf2ee73f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/leetcode/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +23,16 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -41,6 +54,7 @@
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
   <component name="ProjectId" id="1bi74c9jDLwKbHgkLO99rDjzbT4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -51,6 +65,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="leetcode.id" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="cn.sher6j.leetcode.editor.cn" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="P283MoveZeroes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -84,7 +103,8 @@
       <updated>1589102869464</updated>
       <workItem from="1589102873664" duration="412000" />
       <workItem from="1589103298871" duration="171000" />
-      <workItem from="1589103483396" duration="5316000" />
+      <workItem from="1589103483396" duration="5890000" />
+      <workItem from="1589157343954" duration="4721000" />
     </task>
     <servers />
   </component>
@@ -96,29 +116,33 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1589103401499" />
-    <state width="1237" height="155" key="GridCell.Tab.0.bottom" timestamp="1589109643718">
+    <state width="1237" height="155" key="GridCell.Tab.0.bottom" timestamp="1589112806155">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="155" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589109643718" />
-    <state width="1237" height="155" key="GridCell.Tab.0.center" timestamp="1589109643718">
+    <state width="1237" height="155" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589112806155" />
+    <state width="1237" height="155" key="GridCell.Tab.0.center" timestamp="1589112806155">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="155" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1589109643718" />
-    <state width="1237" height="155" key="GridCell.Tab.0.left" timestamp="1589109643718">
+    <state width="1237" height="155" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1589112806155" />
+    <state width="1237" height="155" key="GridCell.Tab.0.left" timestamp="1589112806155">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="155" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1589109643718" />
-    <state width="1237" height="155" key="GridCell.Tab.0.right" timestamp="1589109643718">
+    <state width="1237" height="155" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1589112806155" />
+    <state width="1237" height="155" key="GridCell.Tab.0.right" timestamp="1589112806155">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="155" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1589109643718" />
+    <state width="1237" height="155" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1589112806155" />
     <state x="135" y="0" width="1145" height="680" key="SettingsEditor" timestamp="1589108386039">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="135" y="0" width="1145" height="680" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1589108386039" />
-    <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1589103483560">
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1589157350856">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1589103483560" />
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1589157350856" />
+    <state x="359" y="132" key="git4idea.merge.GitPullDialog" timestamp="1589162738035">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="359" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1589162738035" />
   </component>
 </project>
