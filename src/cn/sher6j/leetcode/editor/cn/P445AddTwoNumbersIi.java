@@ -49,7 +49,7 @@ class Solution {
         ListNode q = l2;
         ListNode res = null;
         while (p != null) {
-            stack1.addLast(p.val); //push
+            stack1.addLast(p.val); //=push
             p = p.next;
         }
         while (q != null) {
@@ -59,7 +59,7 @@ class Solution {
         int carry = 0; //记录进位
         while (!stack1.isEmpty() || !stack2.isEmpty() || carry != 0) {
             int x = 0, y = 0;
-            if (!stack1.isEmpty()) x = stack1.pollLast(); //pop
+            if (!stack1.isEmpty()) x = stack1.pollLast(); //=pop
             if (!stack2.isEmpty()) y = stack2.pollLast();
             ListNode new_node = new ListNode((x + y + carry) % 10);
             carry = (x + y + carry) / 10;
