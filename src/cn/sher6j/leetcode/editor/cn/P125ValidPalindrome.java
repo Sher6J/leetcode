@@ -26,9 +26,44 @@ public class P125ValidPalindrome{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isPalindrome(String s) {
+        /**
+         * 法一：将字符串中所有非字母和数字的字符都去掉再进行回文判断
+         */
+//        return isPalindrome1(s);
+
+        /**
+         * 法二：双指针（左向右指针和右向左指针），碰到非字母数字的字符就跳过
+         */
+        int front = 0;
+        int back = s.length() - 1;
+        while (front < back) {
+            while (front < back && !Character.isLetterOrDigit(s.charAt(front))) front++;
+            while (front < back && !Character.isLetterOrDigit(s.charAt(back))) back--;
+            if (Character.toLowerCase(s.charAt(front)) != Character.toLowerCase(s.charAt(back))) return false;
+            front++;
+            back--;
+        }
+        return true;
 
     }
-}
+
+    private boolean isPalindrome1(String s) {
+        if (s == null || s.equals("")) return true;
+        String str = s.toLowerCase();
+        StringBuilder sb = new StringBuilder();
+        char[] chars = str.toCharArray();
+        for (char c : chars) {
+            if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) {
+                sb.append(c);
+            }
+        }
+        char[] finalChars = sb.toString().toCharArray();
+        for (int i = 0; i < finalChars.length / 2; i++) {
+            if (finalChars[i] != finalChars[finalChars.length - 1 - i]) return false;
+        }
+        return true;
+    }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
