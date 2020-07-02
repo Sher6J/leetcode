@@ -18,9 +18,7 @@
 
 package cn.sher6j.leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 //Java：二叉树的前序遍历
 public class P144BinaryTreePreorderTraversal{
@@ -47,8 +45,11 @@ class Solution {
 //        help(root, list);
 //        return list;
 
+        /**
+         * 解法二：迭代
+         */
         List<Integer> list = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         if (root != null) {
             stack.push(root);
         }

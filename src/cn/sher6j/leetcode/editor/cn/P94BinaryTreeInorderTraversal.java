@@ -17,9 +17,7 @@
 
 package cn.sher6j.leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 //Java：二叉树的中序遍历
 public class P94BinaryTreeInorderTraversal{
@@ -46,8 +44,11 @@ class Solution {
 //        help(root, res);
 //        return res;
 
+        /**
+         * 解法2：迭代
+         */
         List res = new ArrayList();
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         TreeNode current = root;
         while (current != null || !stack.isEmpty()) {
             //将节点及其左孩子一条线都入栈
