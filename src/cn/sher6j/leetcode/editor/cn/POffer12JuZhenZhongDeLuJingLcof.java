@@ -68,9 +68,9 @@ class Solution {
         char tmp = board[i][j];
         board[i][j] = '/';
         boolean res = dfs(board, word, i + 1, j, k + 1)
-                    ||dfs(board, word, i - 1, j, k+1)
-                    ||dfs(board, word, i, j + 1, k+1)
-                    ||dfs(board, word, i, j - 1, k+1);
+                    ||dfs(board, word, i - 1, j, k + 1)
+                    ||dfs(board, word, i, j + 1, k + 1)
+                    ||dfs(board, word, i, j - 1, k + 1);
         board[i][j] = tmp;
         return res;
     }
