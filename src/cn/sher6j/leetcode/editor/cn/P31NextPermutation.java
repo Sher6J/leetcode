@@ -21,29 +21,39 @@ public class P31NextPermutation{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public void nextPermutation(int[] nums) {
-        if (nums == null || nums.length <= 1) return;
-        boolean flag = false;
-        for (int i = nums.length - 1; i > 0; i--) {
-            for (int j = i - 1; j > -1; j--) {
-                if (nums[j] < nums[i]) {
-                    int temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
-                    flag = true;
-                    break;
-                }
-            }
-            if (flag) break;
+        /**
+         * 1.从后向前遍历找到第一个出现倒序的元素满足 a[i] < a[i+1]
+         * 2.从后向前遍历找到第一个比a[i]大的元素a[j]
+         * 3.交换a[i]和a[j]
+         * 4.将a[i]后的元素进行反转
+         */
+        int i = nums.length - 2;
+        while (i >= 0 && nums[i + 1] <= nums[i]) i--;
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (j >= 0 && nums[j] <= nums[i]) j--;
+            swap(nums, i , j);
         }
-        if (!flag) {
-            for (int i = 0; i < nums.length / 2; i++) {
-                int temp = nums[i];
-                nums[i] = nums[nums.length - i - 1];
-                nums[nums.length - i - 1] = temp;
-            }
-        }
+        reverse(nums, i + 1);
     }
-}
+
+    public void reverse(int[] nums, int start) {
+        int i = start, j = nums.length - 1;
+        while (i < j) swap(nums, i++, j--);
+//        while (i < j) {
+//            swap(nums, i, j);
+//            i++;
+//            j--;
+//        }
+    }
+
+    public void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

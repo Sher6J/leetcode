@@ -36,6 +36,7 @@ class Solution {
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < nums.length - 2; i++) {
+            //跳过所有相等元素，即相等元素不需要遍历
             if (i == 0 || (i > 0 && nums[i] != nums[i -1])) {
                 int left = i + 1;
                 int right = nums.length - 1;
