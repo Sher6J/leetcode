@@ -49,7 +49,7 @@ class Solution {
      */
     public TreeNode help(int[] nums, int i, int j) {
         if (i > j) return null;
-        int idx = (i + j) / 2;
+        int idx = i + (j - i) / 2;
         TreeNode root = new TreeNode(nums[idx]);
         root.left = help(nums, i, idx - 1);
         root.right = help(nums, idx + 1, j);
