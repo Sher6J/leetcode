@@ -64,16 +64,20 @@ class Solution {
         return res;
     }
 
-    public void help(TreeNode root, List res) {
-        if (root != null) {
-            if (root.left != null) {
-                help(root.left, res);
-            }
-            res.add(root.val);
-            if (root.right != null) {
-                help(root.right, res);
-            }
-        }
+    public void help(TreeNode node, List list) {
+//        if (root != null) {
+//            if (root.left != null) {
+//                help(root.left, res);
+//            }
+//            res.add(root.val);
+//            if (root.right != null) {
+//                help(root.right, res);
+//            }
+//        }
+        if (node == null) return;
+        help(node.left, list);
+        list.add(node.val);
+        help(node.right, list);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
