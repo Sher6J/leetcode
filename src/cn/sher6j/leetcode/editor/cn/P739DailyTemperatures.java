@@ -30,6 +30,29 @@ class Solution {
         /**
          * 法二：单调栈
          */
+//        return stackMethod(T);
+
+        /**
+         * 法三：单调栈模板法
+         */
+        int[] res = new int[T.length];
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = T.length - 1; i >= 0 ; i--) {
+            while (!stack.isEmpty() && T[stack.peek()] <= T[i]) {
+                stack.pop();
+            }
+            res[i] = stack.isEmpty() ? 0 : (stack.peek() - i);
+            stack.push(i);
+        }
+        return res;
+    }
+
+    /**
+     * 单调栈
+     * @param T
+     * @return
+     */
+    public int[] stackMethod(int[] T) {
         int n = T.length;
         int[] res = new int[n];
         Deque<Integer> stack = new LinkedList<>();
