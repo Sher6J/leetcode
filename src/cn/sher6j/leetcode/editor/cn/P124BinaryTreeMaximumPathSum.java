@@ -45,6 +45,9 @@ public class P124BinaryTreeMaximumPathSum{
  * }
  */
 class Solution {
+    //贡献值为从当前节点一直走到叶节点的路径的最大值
+    //结果为最大可折线路径的最大值
+
     int res = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
@@ -54,7 +57,7 @@ class Solution {
 
     public int maxGain(TreeNode node) {
         if (node == null) return 0; //空节点贡献值为0
-        int leftGain = Math.max(maxGain(node.left), 0); //左孩子节点
+        int leftGain = Math.max(maxGain(node.left), 0); //左孩子节点，若是负的干脆不走
         int rightGain = Math.max(maxGain(node.right),  0); //右孩子节点
 
         //以当前节点为折点的最大路径取决于该节点的值和该节点左右子节点的贡献值
