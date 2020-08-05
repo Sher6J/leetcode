@@ -30,6 +30,30 @@ public class P198HouseRobber{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int rob(int[] nums) {
+//        return fromStartToEnd(nums);
+        return fromEndToStart(nums);
+    }
+
+    /**
+     * 从后往前动态规划
+     * @param nums
+     * @return
+     */
+    public int fromEndToStart(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n + 2];
+        for (int i = n - 1; i >= 0; i--) {
+            dp[i] = Math.max(dp[i + 1], nums[i] + dp[i + 2]);
+        }
+        return dp[0];
+    }
+
+    /**
+     * 从前往后动态规划
+     * @param nums
+     * @return
+     */
+    public int fromStartToEnd(int[] nums) {
         if (nums.length == 0)
             return 0;
         if (nums.length == 1)
@@ -42,7 +66,7 @@ class Solution {
         }
         return sum[nums.length - 1];
     }
-}
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
