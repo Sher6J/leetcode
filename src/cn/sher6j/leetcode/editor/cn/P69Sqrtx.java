@@ -29,6 +29,7 @@ public class P69Sqrtx{
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
     public int mySqrt(int x) {
         int l = 0, r = x, ans = -1;
         while (l <= r) {
