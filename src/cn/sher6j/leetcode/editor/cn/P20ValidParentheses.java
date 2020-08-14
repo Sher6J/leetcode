@@ -42,7 +42,8 @@
 
 package cn.sher6j.leetcode.editor.cn;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 //Java：有效的括号
 public class P20ValidParentheses{
@@ -56,7 +57,7 @@ class Solution {
         if (s.length() % 2 != 0) { //如果字符串长度为奇数，直接返回不匹配
             return false;
         }
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new LinkedList<>();
         for (char c : s.toCharArray()) {
             //遇到左括号就将其对应的右括号入栈
             if (c == '(') {
