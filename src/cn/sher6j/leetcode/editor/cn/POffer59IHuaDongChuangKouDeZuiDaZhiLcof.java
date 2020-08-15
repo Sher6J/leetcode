@@ -45,7 +45,7 @@ class Solution {
         int idx = 0;
         // 事实上i表示滑动窗口的右端
         for (int i = 0; i < nums.length; i++) {
-            while (!deque.isEmpty() && nums[i] >= nums[deque.peekLast()]) deque.pollLast();
+            while (!deque.isEmpty() && nums[i] > nums[deque.peekLast()]) deque.pollLast();
             deque.add(i);
             if (deque.peekFirst() == i - k) deque.pollFirst();
             if (i >= k - 1) res[idx++] = nums[deque.peekFirst()];
