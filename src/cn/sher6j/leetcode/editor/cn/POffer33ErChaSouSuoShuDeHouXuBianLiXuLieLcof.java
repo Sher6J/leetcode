@@ -39,6 +39,7 @@ public class POffer33ErChaSouSuoShuDeHouXuBianLiXuLieLcof{
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
     public boolean verifyPostorder(int[] postorder) {
         return verifyPostorder(postorder, 0, postorder.length - 1);
     }
