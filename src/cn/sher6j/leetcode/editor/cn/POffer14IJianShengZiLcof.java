@@ -34,6 +34,17 @@ public class POffer14IJianShengZiLcof{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int cuttingRope(int n) {
+        return dpMethod(n);
+    }
+
+    /**
+     * 法一：动态规划
+     * dp[i]：长度为[i]的绳子能得到的最大乘积
+     * 动刀可以在 1,...,i 处动刀，剩余部分为 j
+     * @param n
+     * @return
+     */
+    public int dpMethod(int n) {
         int[] dp = new int[n + 1];
         for (int i = 2; i <= n; i++) {
             for (int j = 1; j < i; j++) {
@@ -42,7 +53,8 @@ class Solution {
         }
         return dp[n];
     }
-}
+
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
