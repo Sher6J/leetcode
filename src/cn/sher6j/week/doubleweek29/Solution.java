@@ -13,7 +13,7 @@ class Solution {
 
     /**
      * 5432. 去掉最低工资和最高工资后的工资平均值
-     * @param salary
+     * @param salary 工资数组
      * @return
      */
     public double average(int[] salary) {
