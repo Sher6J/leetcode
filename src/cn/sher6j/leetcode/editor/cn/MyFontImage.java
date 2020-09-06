@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
  * 在图片上写满“我爱你”
  */
 public class MyFontImage {
+
     public static void createFongImg(String path){
         String base = "我爱你";
         try{
