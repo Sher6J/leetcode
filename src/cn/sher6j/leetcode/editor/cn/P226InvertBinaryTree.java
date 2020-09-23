@@ -44,11 +44,47 @@ public class P226InvertBinaryTree{
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
+//        return method1(root);
+        return method2(root);
+    }
+
+    /**
+     * 递归二：利用前序遍历
+     * @param root
+     * @return
+     */
+    public TreeNode method2(TreeNode root) {
+        // base case
         if (root == null) return null;
-        TreeNode left = invertTree(root.left);
-        TreeNode right = invertTree(root.right);
+
+        // 只考虑当前节点情况，且为前序遍历
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+
+        invertTree(root.left); // 左子树递归
+        invertTree(root.right); // 右子树递归
+
+        return root;
+    }
+
+
+    /**
+     * 递归法一：利用后续遍历
+     * @param root
+     * @return
+     */
+    public TreeNode method1(TreeNode root) {
+        // base case
+        if (root == null) return null;
+
+        TreeNode left = invertTree(root.left); // 递归左子树
+        TreeNode right = invertTree(root.right); // 递归右子树
+
+        // 当前递归逻辑，且为后续遍历
         root.left = right;
         root.right = left;
+
         return root;
     }
 }
