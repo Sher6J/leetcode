@@ -61,6 +61,17 @@ public class P4MedianOfTwoSortedArrays{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        return mergedMethodeWithArray(nums1, nums2);
+    }
+
+    /**
+     * 法一：使用归并的方式，合并两个有序数组，得到一个大的有序数组。
+     * 大的有序数组的中间位置的元素，即为中位数。
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    private double mergedMethodeWithArray(int[] nums1, int[] nums2) {
         int m = nums1.length, n = nums2.length;
         int[] merged = new int[m + n];
         int i = 0, j = 0, k = 0;
@@ -90,7 +101,8 @@ class Solution {
             return (merged[mid - 1] + merged[mid]) / 2.0;
         }
     }
-}
+
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
