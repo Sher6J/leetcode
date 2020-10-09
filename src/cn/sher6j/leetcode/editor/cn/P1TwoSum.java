@@ -19,7 +19,9 @@ package cn.sher6j.leetcode.editor.cn;
 import java.util.Arrays;
 import java.util.HashMap;
 
-//Java：两数之和
+/**
+ * @author sher6j
+ */ //Java：两数之和
 public class P1TwoSum{
     public static void main(String[] args) {
         Solution solution = new P1TwoSum().new Solution();

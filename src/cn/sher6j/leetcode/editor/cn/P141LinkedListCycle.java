@@ -63,31 +63,43 @@ public class P141LinkedListCycle{
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        /**
-         * 将访问过的节点存入到哈希集中，遍历链表，
-         * 如果有节点的next出现在已将访问过的哈希集中，
-         * 则构成回路，
-         * 但是此方法由于创建了一个新的HashSet，所以空间复杂度为O(n)，虽然通过了，但是并不符合题目希望的空间复杂度O(1)
-         */
-//        if (head == null || head.next == null) {
-//            return false;
-//        }
-//        HashSet<Object> set = new HashSet<>();
-//        ListNode current = head;
-//        while (current.next != null) {
-//            set.add(current);
-//            current = current.next;
-//            if (set.contains(current)) {
-//                return true;
-//            }
-//        }
-//        return false;
+//        return hashSetMethod(head);
 
+        return twoPointMethod(head);
+    }
 
-        /**
-         * 快慢指针法：
-         * 龟兔赛跑，加入兔子不睡觉，赛道有环，兔子一定会追上乌龟
-         */
+    /**
+     * 将访问过的节点存入到哈希集中，遍历链表，
+     *          如果有节点的next出现在已将访问过的哈希集中，
+     *          则构成回路，
+     *          但是此方法由于创建了一个新的HashSet，所以空间复杂度为O(n)，
+     *          虽然通过了，但是并不符合题目希望的空间复杂度O(1)
+     * @param head
+     * @return
+     */
+    private boolean hashSetMethod(ListNode head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+        HashSet<Object> set = new HashSet<>();
+        ListNode current = head;
+        while (current.next != null) {
+            set.add(current);
+            current = current.next;
+            if (set.contains(current)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 快慢指针法：
+     *     龟兔赛跑，加入兔子不睡觉，赛道有环，兔子一定会追上乌龟
+     * @param head
+     * @return
+     */
+    private boolean twoPointMethod(ListNode head) {
         if (head == null || head.next == null) {
             return false;
         }

@@ -14,7 +14,9 @@
 
 
 package cn.sher6j.leetcode.editor.cn;
-//Java：两数相加
+/**
+ * @author sher6j
+ */ //Java：两数相加
 public class P2AddTwoNumbers{
     public static void main(String[] args) {
         Solution solution = new P2AddTwoNumbers().new Solution();

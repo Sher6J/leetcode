@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 
 /**
  * 在图片上写满“我爱你”
+ * @author sher6j
  */
 public class MyFontImage {
 
