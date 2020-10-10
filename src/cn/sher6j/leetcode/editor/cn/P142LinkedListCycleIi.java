@@ -69,45 +69,20 @@ public class Solution {
          * 利用HashMap，将访问过的节点及其对应的索引存入到HashMap中
          * 但是发现力扣上只需要返回节点值即可，输出打印语句其主方法里已经写好了
          */
-//        if (head == null || head.next == null) {
-//            System.out.println("no cycle");
-//            return null;
-//        }
-//        HashMap<ListNode, Integer> map = new HashMap<>();
-//        ListNode current = head;
-//        int index = 0;
-//        while (current.next != null) {
-//            map.put(current, index);
-//            current = current.next;
-//            index ++;
-//            if (map.keySet().contains(current)) {
-//                System.out.println("tail connects to node index " + map.get(current));
-//                return current;
-//            }
-//        }
-//        System.out.println("no cycle");
-//        return null;
+//        return hashMapMethod(head);
 
         /**
          * 哈希集
          */
-//        if (head == null || head.next == null) {
-//            return null;
-//        }
-//        HashSet<Object> set = new HashSet<>();
-//        ListNode current = head;
-//        while (current.next != null) {
-//            set.add(current);
-//            current = current.next;
-//            if (set.contains(current)) {
-//                return current;
-//            }
-//        }
-//        return null;
+//        return hashSetMethod(head);
 
         /**
          * 快慢指针法
          */
+        return twoPointMethod(head);
+    }
+
+    private ListNode twoPointMethod(ListNode head) {
         ListNode fast = head, slow = head; //起始快慢指针均指向头结点
         while (true) {
             if (fast == null || fast.next == null) return null;
@@ -121,6 +96,40 @@ public class Solution {
             fast = fast.next;
         }
         return fast;
+    }
+
+    private ListNode hashSetMethod(ListNode head) {
+        ListNode curr = head;
+        HashSet<ListNode> set = new HashSet<>();
+        while (curr != null) {
+            if (set.contains(curr)) {
+                return curr;
+            }
+            set.add(curr);
+            curr = curr.next;
+        }
+        return null;
+    }
+
+    private ListNode hashMapMethod(ListNode head) {
+        if (head == null || head.next == null) {
+            System.out.println("no cycle");
+            return null;
+        }
+        HashMap<ListNode, Integer> map = new HashMap<>();
+        ListNode current = head;
+        int index = 0;
+        while (current.next != null) {
+            map.put(current, index);
+            current = current.next;
+            index ++;
+            if (map.keySet().contains(current)) {
+                System.out.println("tail connects to node index " + map.get(current));
+                return current;
+            }
+        }
+        System.out.println("no cycle");
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

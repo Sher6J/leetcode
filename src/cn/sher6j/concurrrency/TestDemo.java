@@ -29,7 +29,7 @@ public class TestDemo {
         list.add(8);
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
-            list.remove(0);
+            list.remove(list.size() - 1);
             System.out.println(iterator.next());
         }
     }
