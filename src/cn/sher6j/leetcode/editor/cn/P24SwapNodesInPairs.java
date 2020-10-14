@@ -32,17 +32,20 @@ class Solution {
         /**
          * 递归解法
          */
-//        if (head == null || head.next == null) {
-//            return head;
-//        }
-//        ListNode next = head.next;
-//        head.next = swapPairs(next.next);
-//        next.next = head;
-//        return next;
+//        return recursiveMethod(head);
 
         /**
          * 循环解法
          */
+        return loopMethod(head);
+    }
+
+    /**
+     * 法二：循环解法
+     * @param head
+     * @return
+     */
+    private ListNode loopMethod(ListNode head) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode current = dummy;
@@ -55,6 +58,21 @@ class Solution {
             current = current.next.next;
         }
         return dummy.next;
+    }
+
+    /**
+     * 法一：递归
+     * @param head
+     * @return
+     */
+    private ListNode recursiveMethod(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode next = head.next;
+        head.next = swapPairs(next.next);
+        next.next = head;
+        return next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
