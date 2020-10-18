@@ -59,10 +59,45 @@ public class P19RemoveNthNodeFromEndOfList{
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        /**
-         * 解法一：用栈实现倒数
-         * （其他解法如：快慢指针法）
-         */
+//        return stackMethod(head, n);
+        return doublePointMethod(head, n);
+    }
+
+    /**
+     * 法二：指针法
+     * @param head
+     * @param n
+     * @return
+     */
+    private ListNode doublePointMethod(ListNode head, int n) {
+        if (head == null || n < 1) {
+            return head;
+        }
+        ListNode cur = head;
+        while (cur != null) {
+            n--;
+            cur = cur.next;
+        }
+        if (n == 0) {
+            head = head.next;
+        } else if (n > 0) {
+        } else if (n < 0) {
+            cur = head;
+            while (++n < 0) {
+                cur = cur.next;
+            }
+            cur.next = cur.next.next;
+        }
+        return head;
+    }
+
+    /**
+     * 法一：用栈实现倒排
+     * @param head
+     * @param n
+     * @return
+     */
+    private ListNode stackMethod(ListNode head, int n) {
         Deque<ListNode> stack = new LinkedList<>();
         ListNode temp = head;
         if (head == null) return head;
@@ -84,6 +119,7 @@ class Solution {
         }
         return head;
     }
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
