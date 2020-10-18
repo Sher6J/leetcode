@@ -5,7 +5,7 @@ package cn.sher6j.CodingInterviewGuide;
  * @author sher6j
  * @create 2020-10-18-9:21
  */
-public class N012RemoveNthNodeFromEnd {
+public class N013RemoveNthNodeFromEnd {
     public static void main(String[] args) {
         testSinglyNode();
     }
