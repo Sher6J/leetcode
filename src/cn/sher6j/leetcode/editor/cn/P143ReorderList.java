@@ -15,6 +15,7 @@
 
 package cn.sher6j.leetcode.editor.cn;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -37,6 +38,45 @@ public class P143ReorderList{
  */
 class Solution {
     public void reorderList(ListNode head) {
+//        stackMethod1(head);
+        stackPartMethod(head);
+    }
+
+    /**
+     * 法二：对法一进行空间改进，只讲右半区的数据放入栈中
+     * @param head
+     */
+    private void stackPartMethod(ListNode head) {
+        if (head == null || head.next == null) {
+            return;
+        }
+        Deque<ListNode> stack = new ArrayDeque<>();
+        ListNode right = head.next;
+        ListNode cur = head;
+        while (cur.next != null && cur.next.next != null) {
+            right = right.next;
+            cur = cur.next.next;
+        }
+        // right此时为链表右半区的第一个节点
+        while (right != null) {
+            stack.push(right);
+            right = right.next;
+        }
+        cur = head;
+        while (!stack.isEmpty()) {
+            ListNode pop = stack.pop();
+            pop.next = cur.next;
+            cur.next = pop;
+            cur = cur.next.next;
+        }
+        if (cur != null) cur.next = null;
+    }
+
+    /**
+     * 法一：将链表的全部数据放入栈中
+     * @param head
+     */
+    private void stackMethod1(ListNode head) {
         Deque<ListNode> stack = new LinkedList<>();
         int total = 0;
         ListNode curr = head;
