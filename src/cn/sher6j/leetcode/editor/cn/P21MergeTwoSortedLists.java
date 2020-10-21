@@ -53,25 +53,33 @@ class Solution {
         /**
          * 迭代
          */
-        ListNode temp = new ListNode(0); //开辟节点表示新的链表
-        ListNode pre = temp;
+        return loopMethod(l1, l2);
+    }
+
+    /**
+     * 迭代方法
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode loopMethod(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0); //开辟节点表示新的链表
+        ListNode pre = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
                 pre.next = l1;
-                pre = pre.next;
                 l1 = l1.next;
             } else {
                 pre.next = l2;
-                pre = pre.next;
                 l2 = l2.next;
             }
+            pre = pre.next;
         }
         //当有一放还有剩余元素时，
         //那剩下的值一定大于等于链表中已有的值，并且是有序的，
         //直接连接在链表尾部即可
         pre.next = (l1 == null ? l2 : l1);
-        return temp.next;
-
+        return dummy.next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
