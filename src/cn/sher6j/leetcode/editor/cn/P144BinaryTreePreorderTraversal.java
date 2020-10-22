@@ -38,16 +38,51 @@ public class P144BinaryTreePreorderTraversal{
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        /**
-         * 解法一：递归
-         */
-//        List<Integer> list = new ArrayList<>();
-//        help(root, list);
-//        return list;
+//        return recursiveMethod(root);
+//        return loopMethod(root);
+        return morrisMethod(root);
+    }
 
-        /**
-         * 解法二：迭代
-         */
+    /**
+     * 法三：Morris遍历
+     * @param root
+     * @return
+     */
+    private List<Integer> morrisMethod(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        TreeNode cur = root;
+        TreeNode mostRight = null;
+        while (cur != null) {
+            mostRight = cur.left;
+            if (mostRight != null) { // 到达两次的节点
+                while (mostRight.right != null && mostRight.right != cur) {
+                    mostRight = mostRight.right;
+                }
+                if (mostRight.right == null) {
+                    mostRight.right = cur;
+                    list.add(cur.val); // 第一次到的时候打印
+                    cur = cur.left;
+                    continue;
+                } else {
+                    mostRight.right = null; // 第二次到的时候不打印
+                }
+            } else { // 到达一次的节点
+                list.add(cur.val);
+            }
+            cur = cur.right;
+        }
+        return list;
+    }
+
+    /**
+     * 法二：迭代，用栈
+     * @param root
+     * @return
+     */
+    private List<Integer> loopMethod(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
         if (root != null) {
@@ -63,6 +98,17 @@ class Solution {
                 stack.push(current.left);
             }
         }
+        return list;
+    }
+
+    /**
+     * 法一：递归
+     * @param root
+     * @return
+     */
+    private List<Integer> recursiveMethod(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        help(root, list);
         return list;
     }
 
