@@ -70,7 +70,11 @@ class Solution {
         ListNode n2 = secondHalfStart;
 
         while (n2 != null) {
-            if (n1.val != n2.val) return false;
+            if (n1.val != n2.val) {
+                // 返回false之前要将链表还原
+                firstHalfEnd.next = reverseList(secondHalfStart);
+                return false;
+            }
             n1 = n1.next;
             n2 = n2.next;
         }
