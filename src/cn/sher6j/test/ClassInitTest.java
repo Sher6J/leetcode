@@ -11,7 +11,6 @@ public class ClassInitTest {
         num = 2;
         number = 20;
     }
-
     //linking.prepare：number = 0 --> initial: 20->10
     private static int number = 10;
     public static void main(String[] args) {
