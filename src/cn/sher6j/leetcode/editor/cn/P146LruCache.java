@@ -45,12 +45,13 @@ class LRUCache {
     private HashMap<Integer, Node> map; //key - Node(key, val)
     private DoubleList cache; //(k1, v1) <-> (k2, v2)
     private int capacity; //最大容量
+
     public LRUCache(int capacity) {
         this.capacity = capacity;
         this.map = new HashMap<>();
         this.cache = new DoubleList();
     }
-    
+
     public int get(int key) {
         if (!this.map.containsKey(key)) return -1;
         int val = this.map.get(key).val;
@@ -63,18 +64,16 @@ class LRUCache {
         if (this.map.containsKey(key)) {
             //删除旧的节点，然后将替代的新节点插入到头部
             this.cache.removeNode(this.map.get(key));
-            this.cache.addFirst(x);
             //更新map中的数据
-            this.map.put(key, x);
         } else {
             if (this.capacity == this.cache.size()) { //容量已满
                 Node last = this.cache.removeLast();
                 this.map.remove(last.key);
             }
             //添加到头部
-            this.cache.addFirst(x);
-            this.map.put(key, x);
         }
+        this.cache.addFirst(x);
+        this.map.put(key, x);
     }
 }
 
