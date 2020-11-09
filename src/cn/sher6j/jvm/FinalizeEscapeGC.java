@@ -1,6 +1,7 @@
 package cn.sher6j.jvm;
 
 /**
+ *
  * 对象自我拯救
  * 自救机会只有一次，因为一个对象的finalize()方法最多会被系统自动调用一次
  * @author sher6j
