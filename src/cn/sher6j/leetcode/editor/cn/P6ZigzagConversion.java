@@ -46,24 +46,31 @@ public class P6ZigzagConversion{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String convert(String s, int numRows) {
-        if (numRows == 1) return s;
+        char[] chars = s.toCharArray();
+        int len = chars.length;
 
-        List<StringBuilder> rows = new ArrayList<>();
-        for (int i = 0; i < Math.min(numRows, s.length()); i++)
-            rows.add(new StringBuilder());
-
-        int curRow = 0;
-        boolean goingDown = false;
-
-        for (char c : s.toCharArray()) {
-            rows.get(curRow).append(c);
-            if (curRow == 0 || curRow == numRows - 1) goingDown = !goingDown;
-            curRow += goingDown ? 1 : -1;
+        StringBuilder[] sb = new StringBuilder[numRows];
+        for (int i = 0; i < numRows; i++) {
+            sb[i] = new StringBuilder();
         }
 
-        StringBuilder ret = new StringBuilder();
-        for (StringBuilder row : rows) ret.append(row);
-        return ret.toString();
+        int i = 0;
+        while (i < len) {
+            // up to down
+            for (int j = 0; j < numRows && i < len; j++) {
+                sb[j].append(chars[i++]);
+            }
+            // down to up
+            for (int j = numRows - 2; j >= 1 && i < len; j--) {
+                sb[j].append(chars[i++]);
+            }
+        }
+
+        for (int j = 1; j < numRows; j++) {
+            sb[0].append(sb[j]);
+        }
+
+        return sb[0].toString();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
