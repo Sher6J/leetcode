@@ -50,10 +50,11 @@ class Solution {
                             right--;
                         left ++;
                         right --;
-                    } else if (nums[left] + nums[right] > sum)
+                    } else if (nums[left] + nums[right] > sum) {
                         right --;
-                    else
+                    } else {
                         left ++;
+                    }
                 }
             }
         }
