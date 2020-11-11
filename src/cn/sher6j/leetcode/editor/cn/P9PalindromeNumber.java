@@ -36,6 +36,27 @@ public class P9PalindromeNumber{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isPalindrome(int x) {
+//        return toStringMethod(x);
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int rev = 0;
+
+        while (x > rev) {
+            rev = rev * 10 + x % 10;
+            x = x / 10;
+        }
+
+        return x == rev || x == rev / 10;
+    }
+
+    /**
+     * 将数字转换为字符串
+     * @param x
+     * @return
+     */
+    private boolean toStringMethod(int x) {
         if (x < 0 || (x % 10 == 0 && x != 0)) return false;
         char[] chars = String.valueOf(x).toCharArray();
         for (int i = 0; i < chars.length / 2; i++) {
@@ -43,7 +64,7 @@ class Solution {
         }
         return true;
     }
-}
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
