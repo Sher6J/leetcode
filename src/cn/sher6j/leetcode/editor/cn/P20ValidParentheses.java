@@ -59,7 +59,7 @@ class Solution {
         }
         Deque<Character> stack = new LinkedList<>();
         for (char c : s.toCharArray()) {
-            //遇到左括号就将其对应的右括号入栈
+            // 遇到左括号就将其对应的右括号入栈
             if (c == '(') {
                 stack.push(')');
             } else if (c == '[') {
@@ -67,7 +67,7 @@ class Solution {
             } else if (c == '{') {
                 stack.push('}');
             }
-            //遇到右括号如果有对应的左括号则栈里一定有元素且栈顶元素一定是自己，否则不匹配
+            // 遇到右括号如果有对应的左括号则栈里一定有元素且栈顶元素一定是自己，否则不匹配
             else if (stack.isEmpty() || stack.pop() != c) {
                 return false;
             }

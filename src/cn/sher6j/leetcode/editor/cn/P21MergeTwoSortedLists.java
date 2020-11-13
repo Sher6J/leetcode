@@ -38,22 +38,27 @@ class Solution {
          *      结束递归调用时 mergeTwoLists 函数最多调用 n+m 次，
          *      因此空间复杂度为 O(n+m)。
          */
-//        if (l1 == null) { //递归出口
-//            return l2;
-//        } else if (l2 == null) { //递归出口
-//            return l1;
-//        } else if (l1.val < l2.val) {
-//            l1.next = mergeTwoLists(l1.next, l2);
-//            return l1;
-//        } else {
-//            l2.next = mergeTwoLists(l2.next, l1);
-//            return l2;
-//        }
+//        return recursive(l1, l2);
 
         /**
          * 迭代
          */
         return loopMethod(l1, l2);
+    }
+
+
+    private ListNode recursive(ListNode l1, ListNode l2) {
+        if (l1 == null) { //递归出口
+            return l2;
+        } else if (l2 == null) { //递归出口
+            return l1;
+        } else if (l1.val < l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l2.next, l1);
+            return l2;
+        }
     }
 
     /**
