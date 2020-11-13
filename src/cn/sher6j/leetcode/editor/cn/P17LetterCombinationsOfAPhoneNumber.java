@@ -17,10 +17,7 @@
 
 package cn.sher6j.leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //Java：电话号码的字母组合
 public class P17LetterCombinationsOfAPhoneNumber{
@@ -31,32 +28,54 @@ public class P17LetterCombinationsOfAPhoneNumber{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<String> letterCombinations(String digits) {
-        List<String> res = new ArrayList<>();
-        if (digits == null || digits.length() == 0) return res;
-        Map<Character, String> numCharMap = new HashMap<>();
-        numCharMap.put('2', "abc");
-        numCharMap.put('3', "def");
-        numCharMap.put('4', "ghi");
-        numCharMap.put('5', "jkl");
-        numCharMap.put('6', "mno");
-        numCharMap.put('7', "pqrs");
-        numCharMap.put('8', "tuv");
-        numCharMap.put('9', "wxyz");
-        backtrack(res, numCharMap, digits, 0, new StringBuilder());
+//        return backtrackMethod(digits);
+        LinkedList<String> res = new LinkedList<>();
+        if (digits.isEmpty()) {
+            return res;
+        }
+        String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        res.add("");
+        for (int i = 0; i < digits.length(); i++) {
+            int num = Character.getNumericValue(digits.charAt(i));
+            while (res.peek().length() == i) {
+                String prefix = res.removeFirst();
+                for (char c : mapping[num].toCharArray()) {
+                    res.addLast(prefix + c);
+                }
+            }
+        }
         return res;
     }
 
-    public void backtrack (List<String> res, Map<Character, String> map, String digits, int idx, StringBuilder cur) {
+    private List<String> backtrackMethod(String digits) {
+        List<String> res = new LinkedList<>();
+        if (digits == null || digits.length() == 0) {
+            return res;
+        }
+        String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        backtrack(res, mapping, digits, 0, new StringBuilder());
+        return res;
+    }
+
+    /**
+     *
+     * @param res 返回结果列表
+     * @param mapping 选择列表
+     * @param digits
+     * @param idx
+     * @param cur 路径
+     */
+    public void backtrack (List<String> res, String[] mapping, String digits, int idx, StringBuilder cur) {
         if (idx == digits.length()) {
             res.add(cur.toString());
             return;
         }
-        char digit = digits.charAt(idx);
-        String letterMay = map.get(digit);
+        int num = Character.getNumericValue(digits.charAt(idx));
+        String letterMay = mapping[num];
         int countMay = letterMay.length();
         for (int i = 0; i < countMay; i++) {
             cur.append(letterMay.charAt(i));
-            backtrack(res, map, digits, idx + 1, cur);
+            backtrack(res, mapping, digits, idx + 1, cur);
             cur.deleteCharAt(idx);
         }
     }

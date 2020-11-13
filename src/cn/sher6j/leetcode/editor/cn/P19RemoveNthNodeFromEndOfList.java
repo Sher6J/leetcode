@@ -60,7 +60,25 @@ public class P19RemoveNthNodeFromEndOfList{
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
 //        return stackMethod(head, n);
-        return doublePointMethod(head, n);
+//        return doublePointMethod(head, n);
+
+        // 快慢指针最优解
+        ListNode dummy = new ListNode(-1, head);
+
+        ListNode fast = head;
+        ListNode slow = dummy;
+
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+        return dummy.next;
     }
 
     /**

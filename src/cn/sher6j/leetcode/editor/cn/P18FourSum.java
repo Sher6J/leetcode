@@ -21,8 +21,10 @@
 
 package cn.sher6j.leetcode.editor.cn;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 //Java：四数之和
@@ -34,6 +36,63 @@ public class P18FourSum{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
+//        return doublePointMethod(nums, target);
+        int len = nums.length;
+        Arrays.sort(nums);
+        return kSum(nums, target, 4, 0, len);
+    }
+
+    /**
+     *
+     * @param nums
+     * @param target
+     * @param k
+     * @param idx the index to begin
+     * @return
+     */
+    private ArrayList<List<Integer>> kSum(int[] nums, int target, int k, int idx, int len) {
+        ArrayList<List<Integer>> res = new ArrayList<>();
+        if (idx >= len) {
+            return res;
+        }
+
+        if (k == 2) {
+            int i = idx, j = len - 1;
+            while (i < j) {
+                if (nums[i] + nums[j] == target) {
+                    res.add(new ArrayList<>(Arrays.asList(nums[i], nums[j])));
+                    while (i < j && nums[i + 1] == nums[i]) {
+                        i++;
+                    }
+                    while (i < j && nums[j - 1] == nums[j]) {
+                        j--;
+                    }
+                    i++;
+                    j--;
+                } else if (nums[i] + nums[j] > target) {
+                    j--;
+                } else {
+                    i++;
+                }
+            }
+        } else {
+            for (int i = idx; i < len - k + 1; i++) {
+                ArrayList<List<Integer>> tmp = kSum(nums, target - nums[i], k - 1, i + 1, len);
+                if (tmp != null) {
+                    for (List<Integer> list : tmp) {
+                        list.add(0, nums[i]);
+                    }
+                    res.addAll(tmp);
+                }
+                while (i < len - k + 1 && nums[i + 1] == nums[i]) {
+                    i++;
+                }
+            }
+        }
+        return res;
+    }
+
+    private List<List<Integer>> doublePointMethod(int[] nums, int target) {
         if (nums.length < 4) return new ArrayList<>();
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
@@ -63,7 +122,8 @@ class Solution {
         }
         return res;
     }
-}
+
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
