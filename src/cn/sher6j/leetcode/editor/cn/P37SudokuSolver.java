@@ -37,6 +37,8 @@ public class P37SudokuSolver{
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    public static final int WIDTH = 9;
+
     public void solveSudoku(char[][] board) {
         backtrack(board, 0, 0);
     }
@@ -49,17 +51,16 @@ class Solution {
      * @return
      */
     public boolean backtrack(char[][] board, int row, int col) {
-        int m = 9, n = 9;
         // 若该行回溯完则转到下一行的第一列
-        if (col == n) {
+        if (col == WIDTH) {
             return backtrack(board, row + 1, 0);
         }
-        if (row == m) {
+        if (row == WIDTH) {
             // 找到一个可行解，触发base case
             return true;
         }
-        for (int i = row; i < m; i++) {
-            for (int j = col; j < n; j++) {
+        for (int i = row; i < WIDTH; i++) {
+            for (int j = col; j < WIDTH; j++) {
                 if (board[i][j] != '.') {
                     return backtrack(board, i, j + 1);
                 }
