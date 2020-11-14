@@ -7,6 +7,7 @@ package cn.sher6j.jvm;
  */
 public class ReferenceCountingGC {
 
+
     public Object instance = null;
 
     private static final int _1MB = 1024 * 1024;
