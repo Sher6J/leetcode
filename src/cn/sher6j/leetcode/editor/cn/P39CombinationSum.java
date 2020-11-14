@@ -77,9 +77,10 @@ class Solution {
         }
 
         for (int i = start; i < candidates.length; i++) {
-            path.addLast(candidates[i]);
+            path.addLast(candidates[i]); // make selection
+            // not i + 1 because we can reuse same elements
             backtrack(res, path, candidates, remain - candidates[i], i);
-            path.removeLast();
+            path.removeLast(); // cancel selection
         }
     }
 }
