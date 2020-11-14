@@ -34,7 +34,7 @@ class Solution {
         if (nums.length == 0) return -1;
         int left = 0, right = nums.length - 1;
         while (left <= right) {
-            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
             //mid分隔开的左右数组中，必然有一个是有序的
             if (nums[mid] == target) return mid;
             //证明mid左边的数组是有序的
