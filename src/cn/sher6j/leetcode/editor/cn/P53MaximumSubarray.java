@@ -23,6 +23,25 @@ public class P53MaximumSubarray{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxSubArray(int[] nums) {
+//        return dpMethod(nums);
+        return greedyMethod(nums);
+    }
+
+    private int greedyMethod(int[] nums) {
+        int n = nums.length;
+        int curSum = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            curSum += nums[i];
+            max = Math.max(curSum, max);
+            if (curSum < 0) {
+                curSum = 0;
+            }
+        }
+        return max;
+    }
+
+    private int dpMethod(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
         int max = dp[0];
@@ -32,7 +51,8 @@ class Solution {
         }
         return max;
     }
-}
+
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
