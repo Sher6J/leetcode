@@ -35,21 +35,10 @@ class Solution {
         /**
          * 当且仅当它们的排序字符串相等时，两个字符串是字母异位词。
          */
-//        if (strs.length == 0) {
-//            return new ArrayList();
-//        }
-//        HashMap<String, List> map = new HashMap<>();
-//        for (String s : strs)  {
-//            char[] chars = s.toCharArray();
-//            Arrays.sort(chars);
-//            String key = String.valueOf(chars);
-//            if (!map.containsKey(key)) {
-//                map.put(key, new ArrayList());
-//            }
-//            map.get(key).add(s);
-//        }
-//        return new ArrayList(map.values());
+//        return sortMethod(strs);
 
+
+        // 计数排序
         if (strs.length == 0) return new ArrayList();
         Map<String, List> ans = new HashMap<String, List>();
         int[] count = new int[26];
@@ -68,7 +57,24 @@ class Solution {
         }
         return new ArrayList(ans.values());
     }
-}
+
+    private List<List<String>> sortMethod(String[] strs) {
+        if (strs.length == 0) {
+            return new ArrayList();
+        }
+        HashMap<String, List> map = new HashMap<>();
+        for (String s : strs)  {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String key = String.valueOf(chars);
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList());
+            }
+            map.get(key).add(s);
+        }
+        return new ArrayList(map.values());
+    }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
