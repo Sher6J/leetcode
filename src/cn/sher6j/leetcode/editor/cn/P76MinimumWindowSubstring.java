@@ -36,7 +36,7 @@ class Solution {
         for (int i = 0; i < t.length(); i++) {
             need.put(t.charAt(i), need.getOrDefault(t.charAt(i), 0) + 1);
         }
-        // 滑动窗口的左编辑和右边界[left, right)，valid为窗口中满足need条件的字符个数
+        // 滑动窗口的左边界和右边界[left, right)，valid为窗口中满足need条件的字符个数
         int left = 0, right = 0, valid = 0;
         // 记录最小覆盖子串的起始索引和长度
         int start = 0, len = Integer.MAX_VALUE;
