@@ -24,10 +24,12 @@ public class P93RestoreIpAddresses{
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    public static final int LENGTH_PER_ADD = 3;
+    public static final int NUM_OF_SEGMENT = 4;
     public List<String> restoreIpAddresses(String s) {
         int len = s.length();
         LinkedList<String> res = new LinkedList<>();
-        if (len < 4 || len > 12) return res;
+        if (len < NUM_OF_SEGMENT || len > NUM_OF_SEGMENT * LENGTH_PER_ADD) return res;
         LinkedList<String> track = new LinkedList<>();
         int split = 0;
         backtrack(track, s, split, len, 0, res);
@@ -47,18 +49,18 @@ class Solution {
                           int begin, LinkedList<String> res) {
         // 回溯框架 ———— 满足结束条件：res.add(路径);return；
         if (begin == len) {
-            if (split == 4) {
+            if (split == NUM_OF_SEGMENT) {
                 res.add(String.join(".", track));
             }
             return;
         }
 
         // 剩余的字符串的字符数无法构成剩余位置的IP地址
-        if (len - begin < (4 - split) || len - begin > 3 * (4 - split)) return;
+        if (len - begin < (NUM_OF_SEGMENT - split) || len - begin > LENGTH_PER_ADD * (NUM_OF_SEGMENT - split)) return;
 
         // 回溯框架 ———— for 选择 in 选择列表
         // 共三种选择，将当前的1/2/3位字符作为下一段IP
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < LENGTH_PER_ADD; i++) {
             if (begin + i >= len) break;
 
             int ipSegment = ifCanBeIpSegment(s, begin, begin + i);
