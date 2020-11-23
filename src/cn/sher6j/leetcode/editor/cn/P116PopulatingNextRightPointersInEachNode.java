@@ -80,7 +80,25 @@ class Node {
 class Solution {
     public Node connect(Node root) {
 //        return method1Recursive(root);
-        return method2LevelOrder(root);
+//        return method2LevelOrder(root);
+        if (root == null) {
+            return root;
+        }
+
+        Node leftMost = root;
+
+        while (leftMost.left != null) {
+            Node cur = leftMost;
+            while (cur != null) {
+                cur.left.next = cur.right;
+                if (cur.next != null) {
+                    cur.right.next = cur.next.left;
+                }
+                cur = cur.next;
+            }
+            leftMost = leftMost.left;
+        }
+        return root;
     }
 
     /**
