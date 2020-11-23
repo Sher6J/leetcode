@@ -10,6 +10,7 @@ import java.util.concurrent.Semaphore;
  * @create 2020-07-24-16:44
  */
 public class BoundedHashSet<T> {
+
     private final Set<T> set;
     private final Semaphore sem;
 
