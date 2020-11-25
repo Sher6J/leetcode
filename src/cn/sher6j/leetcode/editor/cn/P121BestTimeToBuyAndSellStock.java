@@ -33,6 +33,37 @@ public class P121BestTimeToBuyAndSellStock{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxProfit(int[] prices) {
+//        return method1(prices);
+//        return dpMethod(prices);
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int n = prices.length;
+        int max_withstock = -prices[0];
+        int max_nostock = 0;
+        for (int i = 1; i < n; i++) {
+            max_nostock = Math.max(max_nostock, max_withstock + prices[i]);
+            max_withstock = Math.max(max_withstock, -prices[i]);
+        }
+        return max_nostock;
+    }
+
+    private int dpMethod(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int n = prices.length;
+        int[][] dp = new int[n][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], -prices[i]);
+        }
+        return dp[n - 1][0];
+    }
+
+    private int method1(int[] prices) {
         if (prices == null || prices.length < 2) return 0;
         int min = prices[0]; //若卖出第i天的股票，min记录第i天前的股票最便宜的那天
         int maxDiff = prices[1] - min; //记录最大利润
@@ -44,7 +75,8 @@ class Solution {
         if (maxDiff < 0) return 0;
         return maxDiff;
     }
-}
+
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

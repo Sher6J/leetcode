@@ -50,6 +50,38 @@ public class P122BestTimeToBuyAndSellStockIi{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxProfit(int[] prices) {
+//        return greedyMethod(prices);
+//        return dpMethod(prices);
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int n = prices.length;
+        int max_nostock = 0;
+        int max_withstock = -prices[0];
+        for (int i = 1; i < n; i++) {
+            int tmp = max_nostock;
+            max_nostock = Math.max(max_nostock, max_withstock + prices[i]);
+            max_withstock = Math.max(max_withstock, tmp - prices[i]);
+        }
+        return max_nostock;
+    }
+
+    private int dpMethod(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int n = prices.length;
+        int[][] dp = new int[n][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+        }
+        return dp[n - 1][0];
+    }
+
+    private int greedyMethod(int[] prices) {
         if (prices == null || prices.length < 2) return 0;
         int profit = 0;
         for (int i = 1; i < prices.length; i++) {
@@ -58,7 +90,8 @@ class Solution {
         }
         return profit;
     }
-}
+
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
