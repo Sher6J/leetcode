@@ -45,8 +45,8 @@ public class P124BinaryTreeMaximumPathSum{
  * }
  */
 class Solution {
-    //贡献值为从当前节点一直走到叶节点的路径的最大值
-    //结果为最大可折线路径的最大值
+    // 贡献值为从当前节点一直走到叶节点的路径的最大值
+    // 结果为最大可折线路径的最大值
 
     int res = Integer.MIN_VALUE;
 
@@ -56,16 +56,16 @@ class Solution {
     }
 
     public int maxGain(TreeNode node) {
-        if (node == null) return 0; //空节点贡献值为0
-        int leftGain = Math.max(maxGain(node.left), 0); //左孩子节点，若是负的干脆不走
-        int rightGain = Math.max(maxGain(node.right),  0); //右孩子节点
+        if (node == null) return 0; // 空节点贡献值为0
+        int leftGain = Math.max(maxGain(node.left), 0); // 左孩子节点，若是负的干脆不走
+        int rightGain = Math.max(maxGain(node.right),  0); // 右孩子节点
 
-        //以当前节点为折点的最大路径取决于该节点的值和该节点左右子节点的贡献值
+        // 以当前节点为折点的最大路径取决于该节点的值和该节点左右子节点的贡献值
         int currPrice = node.val + leftGain + rightGain;
 
         res = Math.max(res, currPrice);
 
-        //节点的最大贡献值，非空节点的最大贡献值等于该节点值与其子节点中的最大贡献值之和
+        // 节点的最大贡献值，非空节点的最大贡献值等于该节点值与其子节点中的最大贡献值之和
         // 当本节点为叶节点时，其左孩子右孩子均为空，即leftGain = rightGain = 0
         // 对应 对于叶节点而言，最大贡献值等于节点值
         return node.val + Math.max(leftGain, rightGain); // 本节点 ---- 后序遍历
