@@ -30,7 +30,7 @@ class Solution {
         }
         int longestLength = 0;
         for (int num : set) {
-            //跳过所有不是连续数字开头的数组
+            // 跳过所有不是连续数字开头的数组
             if (!set.contains(num - 1)) {
                 int currNum = num; //当前数字
                 int currLength = 1;

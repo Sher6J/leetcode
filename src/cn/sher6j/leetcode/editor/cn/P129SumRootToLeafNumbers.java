@@ -56,10 +56,12 @@ class Solution {
     public int sumNumbers(TreeNode root) {
         return help(root, 0);
     }
-    public int help(TreeNode node, int i) {
+    private int help(TreeNode node, int prevSum) {
         if (node == null) return 0;
-        int tmp = i * 10 + node.val;
-        if (node.left == null && node.right == null) return tmp;
+        int tmp = prevSum * 10 + node.val;
+        if (node.left == null && node.right == null) {
+            return tmp;
+        }
         return help(node.left, tmp) + help(node.right, tmp);
     }
 }
