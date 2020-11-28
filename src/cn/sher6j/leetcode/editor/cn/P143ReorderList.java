@@ -39,7 +39,53 @@ public class P143ReorderList{
 class Solution {
     public void reorderList(ListNode head) {
 //        stackMethod1(head);
-        stackPartMethod(head);
+//        stackPartMethod(head);
+        if (head == null || head.next == null) {
+            return;
+        }
+        ListNode mid = findLastOfLeftHalf(head);
+        ListNode n1 = head;
+        ListNode n2 = mid.next;
+        mid.next = null;
+        n2 = reverse(n2);
+        merge(n1, n2);
+    }
+
+    private ListNode findLastOfLeftHalf(ListNode head) {
+        ListNode left = head;
+        ListNode cur = head;
+        while (cur.next != null && cur.next.next != null) {
+            left = left.next;
+            cur = cur.next.next;
+        }
+        return left;
+    }
+
+    private ListNode reverse(ListNode head) {
+        ListNode pre = null;
+        ListNode next = null;
+        while (head != null) {
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
+
+    private void merge(ListNode n1, ListNode n2) {
+        ListNode cur1 = n1;
+        ListNode cur2 = n2;
+        while (cur1 != null && cur2 != null) {
+            ListNode tmp1 = cur1.next;
+            ListNode tmp2 = cur2.next;
+
+            cur1.next = cur2;
+            cur1 = tmp1;
+
+            cur2.next = cur1;
+            cur2 = tmp2;
+        }
     }
 
     /**
