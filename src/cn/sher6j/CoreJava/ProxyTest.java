@@ -30,7 +30,6 @@ public class ProxyTest {
 //
 //        if (result > 0) System.out.println(elements[result]);
 
-
         Integer val = 2;
         TraceHandler traceHandler = new TraceHandler(val);
         Object proxyInstance = Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(),
