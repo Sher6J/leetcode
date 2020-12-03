@@ -28,7 +28,7 @@ public class P169MajorityElement{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int majorityElement(int[] nums) {
-
+        return 0;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
