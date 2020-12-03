@@ -30,6 +30,7 @@ public class ClassLoaderTest {
 
         System.out.println("=================================");
 
+
         System.out.println("引导类加载器加载的路径：");
         URL[] urLs = Launcher.getBootstrapClassPath().getURLs();
         for (URL url : urLs) {
