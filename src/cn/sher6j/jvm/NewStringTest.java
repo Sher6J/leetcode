@@ -74,7 +74,6 @@ public class NewStringTest {
         String s = new String("sher") + new String("6j");
     }
 
-
     @Test
     public void test3() {
 //        String s = new String("1");
