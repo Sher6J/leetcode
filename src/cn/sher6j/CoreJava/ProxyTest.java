@@ -38,7 +38,6 @@ public class ProxyTest {
 }
 
 class TraceHandler implements InvocationHandler {
-
     private Object target;
 
     public TraceHandler(Object t) {
