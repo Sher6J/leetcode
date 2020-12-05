@@ -41,27 +41,12 @@ class Solution {
         /**
          * 暴力旋转
          */
-//        int temp, previous;
-//        for (int i = 0; i < k; i++) {
-//            previous = nums[nums.length - 1];
-//            for (int j = 0; j < nums.length; j++) {
-//                temp = nums[j];
-//                nums[j] = previous;
-//                previous = temp;
-//            }
-//        }
+//        stupidMethod(nums, k);
 
         /**
          * 开辟新数组，空间复杂度为O(n)
          */
-//        int[] temp = new int[nums.length];
-//        for (int i = 0; i < nums.length; i++) {
-//            temp[(i + k) % nums.length] = nums[i];
-//        }
-////        nums = temp; //这样的话就会出错，因为调用函数是按值传递，方法得到的是所有参数值的一个副本
-//        for (int i = 0; i < nums.length; i++) {
-//            nums[i] = temp[i];
-//        }
+//        wasteSpaceMethod(nums, k);
 
         /**
          * 环装替换法
@@ -82,6 +67,29 @@ class Solution {
             } while (start != current);
         }
 
+    }
+
+    private void wasteSpaceMethod(int[] nums, int k) {
+        int[] temp = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            temp[(i + k) % nums.length] = nums[i];
+        }
+//        nums = temp; //这样的话就会出错，因为调用函数是按值传递，方法得到的是所有参数值的一个副本
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = temp[i];
+        }
+    }
+
+    private void stupidMethod(int[] nums, int k) {
+        int temp, previous;
+        for (int i = 0; i < k; i++) {
+            previous = nums[nums.length - 1];
+            for (int j = 0; j < nums.length; j++) {
+                temp = nums[j];
+                nums[j] = previous;
+                previous = temp;
+            }
+        }
     }
     }
 //leetcode submit region end(Prohibit modification and deletion)
