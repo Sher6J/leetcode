@@ -19,6 +19,9 @@
 
 
 package cn.sher6j.leetcode.editor.cn;
+
+import java.util.Arrays;
+
 //Java：多数元素
 public class P169MajorityElement{
     public static void main(String[] args) {
@@ -28,7 +31,8 @@ public class P169MajorityElement{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int majorityElement(int[] nums) {
-        return 0;
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
