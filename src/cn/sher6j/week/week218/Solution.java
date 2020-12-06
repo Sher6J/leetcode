@@ -11,6 +11,7 @@ import java.util.Arrays;
  */
 public class Solution {
 
+
     public String interpret(String command) {
         int n = command.length();
         int idx = 0;
@@ -84,19 +85,19 @@ public class Solution {
     }
 
     public int concatenatedBinary(int n) {
-        int num = 2;
-        StringBuilder str = new StringBuilder();
-        str.append(Integer.toBinaryString(1));
-        while (num <= n) {
-            String cur = Integer.toBinaryString(n);
-            long len = cur.length();
-            BigInteger bigInteger = new BigInteger(str.toString());
+        long res = 1;
+        int MOD = 1000000007;
+        if (n == 1) {
+            return 1;
         }
-
-        BigInteger bigInteger = new BigInteger(str.toString());
-        bigInteger = bigInteger.divide(new BigInteger("1000000007"));
-        return bigInteger.intValue();
-
+        int shift = 1;
+        for (int i = 2; i <= n; i++) {
+            if ((i & (i - 1)) == 0) {
+                shift++;
+            }
+            res = ((res << shift) % MOD + i) % MOD;
+        }
+        return (int) res;
     }
 
     @Test
