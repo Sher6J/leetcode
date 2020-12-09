@@ -7,6 +7,7 @@ package cn.sher6j.CodingInterviewGuide;
 public class N036Morris {
 }
 
+
 class ImplementOrderWithMorris {
     public void morris(TreeNode head) {
         if (head == null) {
