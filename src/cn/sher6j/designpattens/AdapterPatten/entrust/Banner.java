@@ -11,6 +11,7 @@ public class Banner {
         this.string = string;
     }
 
+
     /**
      * 加括号显示
      */
