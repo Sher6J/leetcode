@@ -15,7 +15,6 @@ public class FinalizeEscapeGC {
         System.out.println("yes, i am alive");
     }
 
-
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
