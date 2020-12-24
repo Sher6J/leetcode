@@ -44,3 +44,8 @@ public class P175CombineTwoTables{
     //There is no code of Java type for this problem
 }
 
+
+// SELECT FirstName, LastName, City, state
+// FROM Person
+// LEFT JOIN Address
+// ON Person.PersonId = Address.PersonId
