@@ -7,6 +7,7 @@ package cn.sher6j.jvm;
 public class ClassCodeTest {
     private int m;
 
+
     public int inc() {
         return m + 1;
     }
