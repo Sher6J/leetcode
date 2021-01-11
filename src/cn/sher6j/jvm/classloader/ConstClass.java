@@ -8,6 +8,5 @@ public class ConstClass {
     static {
         System.out.println("ConstClass init!");
     }
-
     public static final String SHER6J = "sher6j";
 }
