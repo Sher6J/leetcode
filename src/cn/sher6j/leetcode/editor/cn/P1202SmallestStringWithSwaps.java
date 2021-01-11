@@ -120,7 +120,9 @@ class Solution {
         private int[] rank;
 
         /**
-         * 初始化长度为 n 的并查集，每个元素其父亲都是自己，以当前为根节点的子树只有当前节点一个节点
+         * 初始化长度为 n 的并查集，
+         * 每个元素其父亲都是自己，
+         * 以当前为根节点的子树只有当前节点一个节点
          * @param n
          */
         public UnionFind(int n) {
@@ -159,7 +161,7 @@ class Solution {
 
         /**
          * 查找元素 x 的门派
-         * (边查边并)
+         * (边查边并——路径压缩)
          * @param x
          * @return
          */
