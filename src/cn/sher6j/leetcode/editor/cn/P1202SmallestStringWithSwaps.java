@@ -106,6 +106,10 @@ class Solution {
         return res.toString();
     }
 
+    /**
+     * 图的连通性问题，当只考虑是否连通，而不关心怎么连通时
+     * 优先考虑并查集
+     */
     private class UnionFind {
         private int[] parent;
 
