@@ -94,7 +94,6 @@ class Solution {
 
         public int find(int x) {
             if (x != parent[x]) {
-                int origin = parent[x];
                 parent[x] = find(parent[x]);
             }
             return parent[x];
